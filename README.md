@@ -34,7 +34,48 @@ pip install -r requirements.txt
 
 ## Using Hypothesis
 
+This project includes two python Modules, with some code that you can implement in a Test Driven Development style - There are function stubs (including documentation and type annotations) that need code, and some suggested Tests that you might want to implement along the way.
 
+### Day Of Week function
+
+In [day_of_week.py](date_utils/day_of_week.py), we have a function `monday_this_week` that, given a datetime, should return a new datetime at midnight on Monday that week (i.e. the same week that the input datetime is from). What test might we start with? How might we implement this function?
+
+Hints:
+* You can get the current datetime by calling `datetime.now()`
+* You can extract the day of the week from a datetime using `.weekday()`
+* _(Remember that weeks start on Monday (weekday 0) in Python datetimes!)_
+
+Once you have a function that "seems" to do what we want, how can we test it more exhaustively in Hypothesis?
+
+Hints:
+* Check out the [Hypothesis quick start docs](https://hypothesis.readthedocs.io/en/latest/quickstart.html) for an example
+* The `hypothesis.strategies.datetime()` strategy will generate datetimes
+
+This function should be idempotent, in the sense that calling it on a datetime once should produce the same output as calling it two or more times... How can Hypothesis help with that?
+
+Hints:
+* Check out the docs on the [Hypothesis Ghostwriter](https://hypothesis.readthedocs.io/en/latest/ghostwriter.html)
+* Try `hypothesis write --idempotent date_utils.day_of_week.monday_this_week` on the command line
+* Or in a Python REPL:
+```
+from hypothesis.extra import ghostwriter
+print(ghostwriter.idempotent(date_utils.monday_this_week))
+```
+### Day Of Week function
+
+In [time_since.py](date_utils/time_since.py), we have a stack of function stubs, written in a "functional core, imperative shell" style: To do Test Driven Development, you'll want to start with the lower level functions such as `hours_ago`, and "work your way up" to the higher level functions, though they should be much more straightforward to test at that point...
+
+Once you've finished your typical TDD process, and have your own tests for a function, consider how you might use Hypothesis to test it more thoroughly.
+
+Hints:
+* What Strategies should you use for a given function?
+* Are there any values you want to filter out of your strategy?
+* _(As documented, these functions operate on Datetimes in the past...)_
+* You could filter out values you don't want to test for
+    * (assuming you will handle that filtering in your code!)
+* Or your function(s) could raise specific exceptions for invalid dates
+    * (in which case your strategy/test should consider that exception)
+    * (see the [assume](https://hypothesis.readthedocs.io/en/latest/details.html#making-assumptions) and/or [filter](https://hypothesis.readthedocs.io/en/latest/data.html#filtering) documentation for more information)
 
 ## Updating Dependencies
 

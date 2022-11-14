@@ -5,9 +5,18 @@ from date_utils import day_of_week
 
 def test_monday_this_week_wednesday():
     """
-    Returns midnight on Monday, given a datetime on Wednesday
+    Returns midnight on the same day, given a datetime on a Monday
     """
-    # day_of_week.monday_this_week(wednesday_datetime)
+    # TODO: Implement basic unit tests
+    # day_of_week.monday_this_week()
+    pass
+
+def test_monday_this_week_wednesday():
+    """
+    Returns midnight on Monday that week, given a datetime on a Wednesday
+    """
+    # TODO: Implement basic unit tests
+    # day_of_week.monday_this_week()
     pass
 
 
