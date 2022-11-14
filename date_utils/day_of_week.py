@@ -6,13 +6,9 @@ def monday_this_week(current_datetime: datetime) -> datetime:
     Return midnight on Monday of the week this Datetime is in
     (Assumes weeks start on Monday, as per Python datetimes)
     """
-    # FIXME: Needs better implementation
+    # FIXME: Needs better implementation!
     return datetime(2022, 11, 14, 0, 0, 0, 0)
 
-
-# How could we test if monday_this_week is idempotent?
-# Running it once produces the same output as running it N times?
-#
-# import date_utils
-# from hypothesis.extra import ghostwriter
-# print(ghostwriter.idempotent(date_utils.monday_this_week))
+"""
+See tests/test_day_of_week for more activities...
+"""

@@ -10,9 +10,13 @@ def test_monday_this_week_wednesday():
     # day_of_week.monday_this_week(wednesday_datetime)
     pass
 
+
 """
 How could Hypothesis test our function more thoroughly?
 """
+def test_monday_this_week_thoroughly():
+    # TODO: Do cool hypothesis stuff here
+    pass
 
 
 """
@@ -22,4 +26,6 @@ How could we confirm that `monday_this_week` is idempotent?
 # from hypothesis.extra import ghostwriter
 # print(ghostwriter.idempotent(date_utils.monday_this_week))
 """
-
+def test_monday_this_week_is_idempotent():
+    # TODO: Do cool hypothesis stuff here
+    pass
