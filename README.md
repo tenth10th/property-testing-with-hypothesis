@@ -1,8 +1,6 @@
 # Introduction to Property Based Testing
 ## (Using Hypothesis)
 
-### Intro
-
 We've covered Test Driven Development at this event many times before, and the many benefits it provides. Among other types of tests, we can create Regression Tests when we fix a bug, to ensure it doesn't happen again. But could we be more proactive than that?
 
 What if we could generate Tests from our code, and find bugs before our end users do? What if we wrote "specifications" or "strategies" instead of individual tests?
@@ -33,6 +31,10 @@ Alternately, create or select an environment through some other means, then inst
 ```
 pip install -r requirements.txt
 ```
+
+## Using Hypothesis
+
+
 
 ## Updating Dependencies
 
