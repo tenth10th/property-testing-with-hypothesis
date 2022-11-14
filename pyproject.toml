@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "hypothesis_testing"
+version = "0.1.0"
+description = "An introductory exercise with property-based testing, using the Python implementation of Hypothesis"
+authors = ["David Sturgis <tenth10th@gmail.com>"]
+readme = "README.md"
+packages = [ { include = "*.py" } ]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+hypothesis = "^6.56.4"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^5.0.4"
+black = "^22.10.0"
+isort = "^5.10.1"
+pytest = "^7.2.0"
+rope = "^1.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
