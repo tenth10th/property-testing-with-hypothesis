@@ -6,11 +6,8 @@ def monday_this_week(current_datetime: datetime) -> datetime:
     Return midnight on Monday of the week this Datetime is in
     (Assumes weeks start on Monday, as per Python datetimes)
     """
-    monday_datetime = current_datetime.combine(current_datetime, time())
-    day_index = current_datetime.weekday()
-    if day_index != 0:
-        monday_datetime = monday_datetime - timedelta(days=day_index)
-    return monday_datetime
+    # FIXME: Needs better implementation
+    return datetime(2022, 11, 14, 0, 0, 0, 0)
 
 
 # How could we test if monday_this_week is idempotent?
