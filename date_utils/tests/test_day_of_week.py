@@ -2,39 +2,38 @@ from datetime import datetime
 
 from date_utils import day_of_week
 
-
-def test_monday_this_week_wednesday():
-    """
-    Returns midnight on the same day, given a datetime on a Monday
-    """
-    # TODO: Implement basic unit tests
-    # day_of_week.monday_this_week()
-    pass
+from hypothesis import given
+from hypothesis.strategies import datetimes
 
 def test_monday_this_week_wednesday():
     """
     Returns midnight on Monday that week, given a datetime on a Wednesday
     """
-    # TODO: Implement basic unit tests
-    # day_of_week.monday_this_week()
-    pass
+    some_datetime = datetime(2022, 11, 16, 11, 24)
+    monday_datetime = day_of_week.monday_this_week(some_datetime)
+    assert monday_datetime == datetime(2022, 11, 14)
 
 
 """
 How could Hypothesis test our function more thoroughly?
 """
-def test_monday_this_week_thoroughly():
-    # TODO: Do cool hypothesis stuff here
-    pass
+@given(datetimes())
+def test_monday_this_week_thoroughly(some_datetime):
+    expected_monday = day_of_week.monday_this_week(some_datetime)
+    print(f"\nHypothesis: {some_datetime}, => {expected_monday}")
+    # This is Python's opinion, don't @ me
+    MONDAY = 0
+    assert expected_monday.weekday() == MONDAY
 
+# This test code was written by the `hypothesis.extra.ghostwriter` module
+# and is provided under the Creative Commons Zero public domain dedication.
 
-"""
-How could we confirm that `monday_this_week` is idempotent?
-(That calling it 1 time or N times on the same date has the same effect?)
+import date_utils.day_of_week
+from hypothesis import given, strategies as st
 
-# from hypothesis.extra import ghostwriter
-# print(ghostwriter.idempotent(date_utils.monday_this_week))
-"""
-def test_monday_this_week_is_idempotent():
-    # TODO: Do cool hypothesis stuff here
-    pass
+@given(current_datetime=st.datetimes())
+def test_idempotent_monday_this_week(current_datetime):
+    result = date_utils.day_of_week.monday_this_week(current_datetime=current_datetime)
+    repeat = date_utils.day_of_week.monday_this_week(current_datetime=result)
+    assert result == repeat, (result, repeat)
+    print(f"Hypothesis Idempotent: {result} == {repeat}")
