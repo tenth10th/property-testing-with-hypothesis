@@ -25,9 +25,8 @@ def days_ago(current_datetime: datetime, past_datetime: datetime) -> int:
     """
     Return number of full days between current_datetime and past_datetime
     (or 0 if less than one day)
-    """
-    # FIXME: Needs better implementation
-    return 0
+    """    
+    return (current_datetime - past_datetime).days
 
 
 def hours_ago(current_datetime: datetime, since_datetime: datetime) -> int:
